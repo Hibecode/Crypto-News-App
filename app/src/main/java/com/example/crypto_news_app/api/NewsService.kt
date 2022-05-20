@@ -12,11 +12,21 @@ interface NewsService {
         @Query("country")
         countryCode: String,
         @Query("q")
-        search: String = "crypto",
+        searchCategory: String = "crypto",
         @Query("page")
-        pageNumber: String,
+        pageNumber: Int = 1,
         @Query("apiKey")
-        apiKey: String = "rn"
+        apiKey: String = ""
+    ) : Response<NewsResponse>
+
+    @GET("v2/everything")
+    fun searchForNews(
+        @Query("page")
+        pageNo: Int = 1,
+        @Query("q")
+        searchQuery: String,
+        @Query("apiKey")
+        apiKey: String,
     ) : Response<NewsResponse>
 
 
