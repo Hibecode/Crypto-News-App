@@ -5,7 +5,7 @@
     app:startDestination="@id/homeNewsFragment">
     <fragment
         android:id="@+id/homeNewsFragment"
-        android:name="ui.fragments.HomeNewsFragment"
+        android:name="com.example.crypto_news_app.fragments.HomeNewsFragment"
         android:label="HomeNewsFragment" >
         <action
             android:id="@+id/action_homeNewsFragment_to_articleFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchNewsFragment"
-        android:name="ui.fragments.SearchNewsFragment"
+        android:name="com.example.crypto_news_app.fragments.SearchNewsFragment"
         android:label="SearchNewsFragment" >
         <action
             android:id="@+id/action_searchNewsFragment_to_articleFragment"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
-        android:name="ui.fragments.SavedNewsFragment"
+        android:name="com.example.crypto_news_app.fragments.SavedNewsFragment"
         android:label="SavedNewsFragment" >
         <action
             android:id="@+id/action_savedNewsFragment_to_articleFragment"
@@ -29,6 +29,6 @@
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
-        android:name="ui.fragments.ArticleFragment"
+        android:name="com.example.crypto_news_app.fragments.ArticleFragment"
         android:label="ArticleFragment" />
 </navigation>
