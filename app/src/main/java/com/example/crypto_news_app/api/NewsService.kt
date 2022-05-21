@@ -1,13 +1,12 @@
 package com.example.crypto_news_app.api
 
-import com.example.crypto_news_app.RetrofitResp.NewsResponse
+import com.example.crypto_news_app.models.NewsResponse
 import com.example.crypto_news_app.Utils.Constants.Companion.API_KEY
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import retrofit2.http.GET
 import retrofit2.http.Query
 

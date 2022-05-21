@@ -1,4 +1,4 @@
-package com.example.crypto_news_app.RetrofitResp
+package com.example.crypto_news_app.models
 
 data class NewsResponse(
     val articles: List<Article>,
