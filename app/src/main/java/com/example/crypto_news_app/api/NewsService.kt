@@ -34,30 +34,4 @@ interface NewsService {
         apiKey: String = API_KEY
     ) : Response<NewsResponse>
 
-
-    companion object {
-        private const val BASE_URL = "https://newsapi.org"
-
-        private val retrofit by lazy {
-            val logging = HttpLoggingInterceptor()
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logging)
-                .build()
-
-            Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
-        }
-
-        val create: NewsService by lazy {
-            retrofit.create(NewsService::class.java)
-        }
-    }
-
-
 }
