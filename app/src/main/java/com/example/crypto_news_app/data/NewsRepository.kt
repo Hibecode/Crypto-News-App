@@ -1,6 +1,5 @@
 package com.example.crypto_news_app.data
 
-import com.example.crypto_news_app.api.NewsService
 import com.example.crypto_news_app.db.ArticleDB
 import com.example.crypto_news_app.models.Article
 
