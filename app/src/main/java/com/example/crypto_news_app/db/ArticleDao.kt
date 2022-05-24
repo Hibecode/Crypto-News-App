@@ -6,7 +6,7 @@ import com.example.crypto_news_app.models.Article
 
 
 @Dao
-interface NewsDao {
+interface ArticleDao {
 
     @Query("SELECT * FROM articles")
     fun getAllArticles(): LiveData<List<Article>>
