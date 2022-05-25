@@ -5,16 +5,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.crypto_news_app.data.NewsRepository
 import com.example.crypto_news_app.models.Article
+import com.example.crypto_news_app.models.NewsResponse
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class NewsViewModel(repository: NewsRepository): ViewModel() {
+class NewsViewModel(val repository: NewsRepository): ViewModel() {
 
-    val newResponse: MutableLiveData<Response<Article>> = MutableLiveData()
+    var breakingNewsResponse: MutableLiveData<Response<NewsResponse>> = MutableLiveData()
 
 
     fun getBreakingNews() = viewModelScope.launch {
-
+        val response = repository.getBreakingNews("us", "crypto", 1)
+        breakingNewsResponse.value = response
     }
 
 }
