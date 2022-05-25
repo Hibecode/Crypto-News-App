@@ -45,9 +45,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-    // Architectural Components
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-
     // Room
     implementation "androidx.room:room-runtime:2.2.5"
     kapt "androidx.room:room-compiler:2.2.5"
