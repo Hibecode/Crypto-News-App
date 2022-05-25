@@ -1,4 +1,4 @@
-package com.example.crypto_news_app.Utils
+package com.example.crypto_news_app.utils
 
 class Constants {
 
