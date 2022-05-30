@@ -38,7 +38,7 @@ class NewsActivity : AppCompatActivity() {
 
     }
 
-    fun setUpRecyclerView() {
+    private fun setUpRecyclerView() {
         rvHomeNews.adapter = myAdapter
         rvHomeNews.layoutManager = LinearLayoutManager(this)
     }
