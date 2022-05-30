@@ -1,12 +1,11 @@
 package com.example.crypto_news_app.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.example.crypto_news_app.models.Article
 
-@Database(entities = [Article::class], version = 1)
+@Database( entities = [Article::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class ArticleDB: RoomDatabase() {
 
     abstract fun articleDao(): ArticleDao
