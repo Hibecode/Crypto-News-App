@@ -6,17 +6,30 @@ import androidx.lifecycle.viewModelScope
 import com.example.crypto_news_app.data.NewsRepository
 import com.example.crypto_news_app.models.Article
 import com.example.crypto_news_app.models.NewsResponse
+import com.example.crypto_news_app.utils.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import java.lang.Exception
 
 class NewsViewModel(val repository: NewsRepository): ViewModel() {
 
-    var breakingNewsResponse: MutableLiveData<Response<NewsResponse>> = MutableLiveData()
+    val breakingNewsResponse: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var homeNewsPageNo = 1
+    var searchCategory = "crypto"
 
 
     fun getBreakingNews() = viewModelScope.launch {
-        val response = repository.getBreakingNews("us", "crypto", 1)
-        breakingNewsResponse.value = response
+        breakingNewsResponse.postValue(Resource.Loading())
+        val response = repository.getBreakingNews("us", searchCategory, homeNewsPageNo)
+        breakingNewsResponse.postValue(handlingBreakingNews(response))
+    }
+
+    private fun handlingBreakingNews(response: Response<NewsResponse>): Resource<NewsResponse> {
+        if(response.isSuccessful){
+            response.body()?.let { returnResult ->
+                return Resource.Success(returnResult) }
+            }
+        return Resource.Error(response.message())
     }
 
 }
