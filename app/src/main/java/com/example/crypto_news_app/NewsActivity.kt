@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_home_news.*
 
 class NewsActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: NewsViewModel
+    lateinit var viewModel: NewsViewModel
     private val myAdapter by lazy { NewsAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
