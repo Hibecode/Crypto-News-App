@@ -20,14 +20,11 @@ import kotlinx.android.synthetic.main.fragment_home_news.*
 class NewsActivity : AppCompatActivity() {
 
     lateinit var viewModel: NewsViewModel
-    private val myAdapter by lazy { NewsAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news)
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
-
-        setUpRecyclerView()
 
         val db = ArticleDB(this)
         val repository = NewsRepository(db)
@@ -35,12 +32,6 @@ class NewsActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this, viewModelFactory).get(NewsViewModel::class.java)
 
 
-
-    }
-
-    private fun setUpRecyclerView() {
-        rvHomeNews.adapter = myAdapter
-        rvHomeNews.layoutManager = LinearLayoutManager(this)
     }
 
 }
