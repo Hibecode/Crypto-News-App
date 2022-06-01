@@ -25,11 +25,12 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
 
         setUpRecyclerView()
 
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     response.data?.let { newsResponse ->
-                        myAdapter.differ.submitList(newsResponse.articles) }
+                        myAdapter.differ.submitList(newsResponse.articles)
+                    }
                 }
                 is Resource.Error -> {
                     Toast.makeText(activity, response.message, Toast.LENGTH_LONG).show()
@@ -38,7 +39,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
                     Toast.makeText(activity, "LOADING", Toast.LENGTH_SHORT).show()
                 }
             }
-        })
+        }
 
     }
 
