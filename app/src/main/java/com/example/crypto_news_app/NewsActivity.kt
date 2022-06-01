@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,12 +26,15 @@ class NewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news)
-        bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
+
+        val navHostFrag = supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment
+        val navController = navHostFrag.navController
+        bottomNavigationView.setupWithNavController(navController)
 
         val db = ArticleDB(this)
         val repository = NewsRepository(db)
         val viewModelFactory = NewsViewModelFactory(repository)
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(NewsViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(NewsViewModel::class.java)
 
 
     }
