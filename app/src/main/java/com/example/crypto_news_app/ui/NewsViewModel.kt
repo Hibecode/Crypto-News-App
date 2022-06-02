@@ -12,7 +12,7 @@ import retrofit2.Response
 class NewsViewModel(val repository: NewsRepository): ViewModel() {
 
     init {
-        getBreakingNews("us", "crypto")
+        getBreakingNews("us", "id")
     }
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
