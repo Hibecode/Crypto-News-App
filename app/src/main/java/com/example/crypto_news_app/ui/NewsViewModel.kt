@@ -12,18 +12,18 @@ import retrofit2.Response
 class NewsViewModel(val repository: NewsRepository): ViewModel() {
 
     init {
-        getBreakingNews( "blockchain")
+        getBreakingNews( "crypto", 1)
     }
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    var homeNewsPageNo = 1
+    private var homeNewsPageNo = 1
     var searchCategory = "crypto"
     //var countryCode = "us"
 
 
-    fun getBreakingNews(searchCategory: String) = viewModelScope.launch {
+    fun getBreakingNews(searchCategory: String, pageNo: Int) = viewModelScope.launch {
         //breakingNews.postValue(Resource.Loading())
-        val response = repository.getBreakingNews(searchCategory, homeNewsPageNo)
+        val response = repository.getBreakingNews(searchCategory, pageNo)
         breakingNews.postValue(handlingBreakingNews(response))
     }
 
