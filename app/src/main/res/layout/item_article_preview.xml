@@ -10,8 +10,9 @@
         android:id="@+id/ivArticleImage"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:src="@drawable/test_image"
+        android:layout_marginTop="5dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/test_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/RoundSquare"
@@ -23,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:fontFamily="@font/montserrat_medium"
         android:maxLines="3"
         android:text="@string/title_is_the_latest_band_in_town_people_rush_to_meet_them_in_the_alley_way_in_gerogia_town"
@@ -41,9 +42,10 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivArticleImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/tvSource"
