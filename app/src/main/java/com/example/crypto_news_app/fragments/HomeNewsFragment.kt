@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crypto_news_app.NewsActivity
 import com.example.crypto_news_app.R
@@ -24,7 +25,19 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
         viewModel = (activity as NewsActivity).viewModel
 
         setUpRecyclerView()
-        
+
+        myAdapter.setOnItemClickListener {
+            //Puts the article data into buble
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+
+            //
+            view.findNavController().navigate(
+                R.id.action_homeNewsFragment_to_articleFragment, bundle)
+
+        }
+
         viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
