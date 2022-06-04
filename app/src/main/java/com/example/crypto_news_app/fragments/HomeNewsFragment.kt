@@ -24,7 +24,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
         viewModel = (activity as NewsActivity).viewModel
 
         setUpRecyclerView()
-
+        
         viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {

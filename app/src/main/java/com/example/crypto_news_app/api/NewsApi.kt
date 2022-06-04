@@ -8,10 +8,8 @@ import retrofit2.http.Query
 
 interface NewsApi {
 
-    @GET("v2/top-headlines")
+    @GET("v2/everything")
     suspend fun getBreakingNews(
-        @Query("country")
-        countryCode: String,
         @Query("q")
         searchCategory: String = "crypto",
         @Query("page")

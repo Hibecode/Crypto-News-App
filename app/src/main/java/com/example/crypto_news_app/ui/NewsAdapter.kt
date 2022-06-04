@@ -47,7 +47,23 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             tvTitle.text = article.title
             tvSource.text = article.source.name
             tvPublishedAt.text = article.publishedAt
+
+            //Once the item view is clicked the item article data is passed to the
+            //onItemClickListener. Continue down
+            setOnClickListener{
+                //onItemClickListener?.let { it(article) }
+                onItemClickListener?.let { it(article) }
+            }
         }
+    }
+
+    //This is used to store the item article data
+    private var onItemClickListener: ((Article) -> Unit)? = null
+
+    //This function takes whatever is called on it in the fragment(which is the listener)
+    //and assigns it to the onItemClickListener (which later gets the article parameter.
+    fun setOnItemClickListener(listener: ((Article) -> Unit)) {
+        onItemClickListener = listener
     }
 
 

@@ -13,8 +13,8 @@ class NewsRepository(private val db: ArticleDB) {
 
     suspend fun deleteArticle(article: Article) = db.articleDao().delete(article)
 
-    suspend fun getBreakingNews(countryCode: String, searchCategory: String, pageNumber: Int) =
-        RetrofitInstance.api.getBreakingNews(countryCode, searchCategory, pageNumber)
+    suspend fun getBreakingNews(searchCategory: String, pageNumber: Int) =
+        RetrofitInstance.api.getBreakingNews(searchCategory, pageNumber)
 
     suspend fun searchForNews(pageNumber: Int, searchCategory: String) =
         RetrofitInstance.api.searchForNews(pageNumber, searchCategory)
