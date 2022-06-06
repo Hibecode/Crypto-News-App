@@ -30,5 +30,9 @@
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.example.crypto_news_app.fragments.ArticleFragment"
-        android:label="ArticleFragment" />
+        android:label="ArticleFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.example.crypto_news_app.models.Article"/>
+    </fragment>
 </navigation>
