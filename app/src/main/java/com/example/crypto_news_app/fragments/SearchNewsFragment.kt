@@ -49,7 +49,7 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
                 delay(500L)
                 editable?.let {
                     if(editable.toString().isNotEmpty()) {
-                        viewModel.getSearchNews(editable.toString())
+                        viewModel.getSearchNews(1, editable.toString())
                     }
                 }
             }
