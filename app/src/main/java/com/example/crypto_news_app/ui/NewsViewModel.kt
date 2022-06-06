@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.crypto_news_app.data.NewsRepository
+import com.example.crypto_news_app.models.Article
 import com.example.crypto_news_app.models.NewsResponse
 import com.example.crypto_news_app.utils.Resource
 import kotlinx.coroutines.launch
@@ -14,6 +15,19 @@ class NewsViewModel(val repository: NewsRepository): ViewModel() {
     init {
         getBreakingNews( 1, "crypto")
     }
+
+    fun getSavedNews() = viewModelScope.launch {
+        repository.getAllArticles()
+    }
+
+    fun insertNews(article: Article) = viewModelScope.launch {
+        repository.upsertArticle(article)
+    }
+
+    fun deleteNews(article: Article) = viewModelScope.launch {
+        repository.deleteArticle(article)
+    }
+
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var homePageNo = 1
