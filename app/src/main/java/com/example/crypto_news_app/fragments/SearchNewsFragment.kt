@@ -60,12 +60,18 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
 
         var job: Job? = null
         etSearchNews.addTextChangedListener{ editable ->
+            //Cancel the current coroutine
             job?.cancel()
+            // Launch a new coroutine
             job = MainScope().launch {
+                //add delay to allow incase text changes in less than half a second
                 delay(500L)
-                //viewModel.getSearchNews()
+                editable?.let {
+                    if(editable.toString().isNotEmpty()) {
+                        viewModel.getSearchNews(editable.toString())
+                    }
+                }
             }
-
         }
 
 
@@ -73,7 +79,7 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
 
 
     private fun setUpRecyclerView() {
-        rvHomeNews.adapter = myAdapter
-        rvHomeNews.layoutManager = LinearLayoutManager(activity)
+        rvSearchNews.adapter = myAdapter
+        rvSearchNews.layoutManager = LinearLayoutManager(activity)
     }
 }

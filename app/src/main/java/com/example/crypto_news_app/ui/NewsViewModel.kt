@@ -16,11 +16,11 @@ class NewsViewModel(val repository: NewsRepository): ViewModel() {
     }
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    private var homePageNo = 1
+    var homePageNo = 1
     var searchCategory = "crypto"
 
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    private var searchPageNo = 1
+    var searchPageNo = 1
 
 
     fun getBreakingNews(searchCategory: String) = viewModelScope.launch {
