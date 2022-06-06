@@ -38,6 +38,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
 
         }
 
+        viewModel.getBreakingNews( 1, "blockchain")
         viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {

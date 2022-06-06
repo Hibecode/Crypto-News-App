@@ -11,9 +11,9 @@ import retrofit2.Response
 
 class NewsViewModel(val repository: NewsRepository): ViewModel() {
 
-    init {
+    /*init {
         getBreakingNews( 1, "blockchain")
-    }
+    }*/
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     private var homeNewsPageNo = 1
