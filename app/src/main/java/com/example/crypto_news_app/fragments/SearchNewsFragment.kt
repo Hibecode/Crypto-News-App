@@ -43,7 +43,7 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
 
         var searchMessage = etSearchNews.text
         var query = ""
-        viewModel.getSearchNews(1 , query)
+        viewModel.getSearchNews(query)
         viewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {
