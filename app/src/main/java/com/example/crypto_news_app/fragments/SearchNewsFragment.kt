@@ -39,25 +39,6 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
                 R.id.action_searchNewsFragment_to_articleFragment, bundle)
         }
 
-
-
-        var searchMessage = etSearchNews.text
-        var query = ""
-        viewModel.getSearchNews(query)
-        viewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
-            when (response) {
-                is Resource.Success -> {
-                    response.data?.articles.let { myAdapter.differ.submitList(it) }
-                }
-                is Resource.Error -> {
-                    Toast.makeText(activity, response.message, Toast.LENGTH_LONG).show()
-                }
-                is Resource.Loading -> {
-                    Toast.makeText(activity, "Loading", Toast.LENGTH_SHORT).show()
-                }
-            }
-        })
-
         var job: Job? = null
         etSearchNews.addTextChangedListener{ editable ->
             //Cancel the current coroutine
@@ -73,6 +54,26 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
                 }
             }
         }
+
+
+
+        var searchMessage = etSearchNews.text
+        var query = ""
+        viewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
+            when (response) {
+                is Resource.Success -> {
+                    response.data?.articles.let { myAdapter.differ.submitList(it) }
+                }
+                is Resource.Error -> {
+                    Toast.makeText(activity, response.message, Toast.LENGTH_LONG).show()
+                }
+                is Resource.Loading -> {
+                    Toast.makeText(activity, "Loading", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+
+
 
 
     }
