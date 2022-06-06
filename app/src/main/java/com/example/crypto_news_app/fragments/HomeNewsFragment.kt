@@ -27,7 +27,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
         setUpRecyclerView()
 
         myAdapter.setOnItemClickListener {
-            //Puts the article data into buble
+            //Puts the article data into bundle
             val bundle = Bundle().apply {
                 putSerializable("article", it)
             }
