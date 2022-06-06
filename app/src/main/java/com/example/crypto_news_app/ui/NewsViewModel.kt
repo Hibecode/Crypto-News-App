@@ -16,9 +16,7 @@ class NewsViewModel(val repository: NewsRepository): ViewModel() {
         getBreakingNews( 1, "crypto")
     }
 
-    fun getSavedNews() = viewModelScope.launch {
-        repository.getAllArticles()
-    }
+    val getSavedNews = repository.getAllArticles()
 
     fun insertNews(article: Article) = viewModelScope.launch {
         repository.upsertArticle(article)

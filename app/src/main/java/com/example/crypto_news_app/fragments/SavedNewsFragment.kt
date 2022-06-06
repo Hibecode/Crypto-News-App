@@ -3,6 +3,8 @@ package com.example.crypto_news_app.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crypto_news_app.NewsActivity
 import com.example.crypto_news_app.R
@@ -22,6 +24,10 @@ class SavedNewsFragment: Fragment(R.layout.fragment_saved_news) {
         viewModel = (activity as NewsActivity).viewModel
 
         setUpRecyclerView()
+
+        viewModel.getSavedNews.observe(viewLifecycleOwner, Observer { articles ->
+            myAdapter.differ.submitList(articles)
+        })
 
 
     }
