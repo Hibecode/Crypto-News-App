@@ -9,6 +9,7 @@ import com.example.crypto_news_app.NewsActivity
 import com.example.crypto_news_app.R
 import com.example.crypto_news_app.models.Article
 import com.example.crypto_news_app.ui.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_article.*
 
 class ArticleFragment: Fragment(R.layout.fragment_article) {
@@ -27,6 +28,11 @@ class ArticleFragment: Fragment(R.layout.fragment_article) {
             webViewClient = WebViewClient()
             settings.supportZoom()
             loadUrl(article.url)
+        }
+
+        fab.setOnClickListener {
+            viewModel.insertNews(article)
+            Snackbar.make(view, "Saved", Snackbar.LENGTH_SHORT).show()
         }
 
     }
