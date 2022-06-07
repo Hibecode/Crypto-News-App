@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crypto_news_app.NewsActivity
 import com.example.crypto_news_app.R
-import com.example.crypto_news_app.models.NewsResponse
-import com.example.crypto_news_app.ui.NewsAdapter
+import com.example.crypto_news_app.adapters.NewsAdapter
 import com.example.crypto_news_app.ui.NewsViewModel
 import com.example.crypto_news_app.utils.Resource
 import kotlinx.android.synthetic.main.fragment_home_news.*

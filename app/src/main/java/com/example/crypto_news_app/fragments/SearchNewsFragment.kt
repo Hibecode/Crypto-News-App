@@ -1,7 +1,6 @@
 package com.example.crypto_news_app.fragments
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
@@ -11,10 +10,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crypto_news_app.NewsActivity
 import com.example.crypto_news_app.R
-import com.example.crypto_news_app.ui.NewsAdapter
+import com.example.crypto_news_app.adapters.NewsAdapter
 import com.example.crypto_news_app.ui.NewsViewModel
 import com.example.crypto_news_app.utils.Resource
-import kotlinx.android.synthetic.main.fragment_home_news.*
 import kotlinx.android.synthetic.main.fragment_search_news.*
 import kotlinx.coroutines.*
 
