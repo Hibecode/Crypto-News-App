@@ -48,9 +48,11 @@ class HorizontalScrollAdapter: RecyclerView.Adapter<HorizontalScrollAdapter.Hori
             // This changes color of tag button depending on whether is pressed or not
             tagButton.setOnClickListener {
                 if (tag.isPressed){
+                    viewModel.getBreakingNews(1, "blockchain")
                     tagButton.setBackgroundColor(resources.getColor(R.color.tagNotPressed))
                     tag.isPressed = false
                 } else {
+                    viewModel.getBreakingNews(1, tag.name)
                     tagButton.setBackgroundColor(resources.getColor(R.color.tagPressed))
                     tag.isPressed = true
                 }
