@@ -27,6 +27,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
 
         setUpRecyclerView()
         setUpTagRecyclerView()
+        myAdapter.viewModel = viewModel
 
         myAdapter.setOnItemClickListener {
             //Puts the article data into bundle

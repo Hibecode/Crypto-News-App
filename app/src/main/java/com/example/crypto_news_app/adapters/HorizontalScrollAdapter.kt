@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.crypto_news_app.R
 import com.example.crypto_news_app.models.Article
 import com.example.crypto_news_app.models.Tag
+import com.example.crypto_news_app.ui.NewsViewModel
 import kotlinx.android.synthetic.main.item_tag.view.*
 
 class HorizontalScrollAdapter: RecyclerView.Adapter<HorizontalScrollAdapter.HorizontalScrollViewHolder>() {
 
-
+    lateinit var viewModel: NewsViewModel
     inner class HorizontalScrollViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     private val differCallback = object : DiffUtil.ItemCallback<Tag>() {
