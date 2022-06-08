@@ -13,7 +13,7 @@ import retrofit2.Response
 class NewsViewModel(val repository: NewsRepository): ViewModel() {
 
     init {
-        getBreakingNews( 1, "crypto")
+        getBreakingNews( 1, "blockchain")
     }
 
     val getSavedNews = repository.getAllArticles()

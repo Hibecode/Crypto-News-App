@@ -44,6 +44,7 @@ class HorizontalScrollAdapter: RecyclerView.Adapter<HorizontalScrollAdapter.Hori
         val tag = differ.currentList[position]
         holder.itemView.apply {
             tagButton.text = tag.name
+            // This changes color of tag button depending on whether is pressed or not
             tagButton.setOnClickListener {
                 if (tag.isPressed){
                     tagButton.setBackgroundColor(resources.getColor(R.color.tagNotPressed))
