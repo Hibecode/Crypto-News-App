@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.crypto_news_app.R
 import com.example.crypto_news_app.models.Article
+import com.example.crypto_news_app.ui.NewsViewModel
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
-
+    lateinit var viewModel: NewsViewModel
 
     private val differCallback = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
@@ -52,6 +53,9 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             setOnClickListener{
                 //onItemClickListener?.let { it(article) }
                 onItemClickListener?.let { it(article) }
+            }
+            ivArticleImage.setOnClickListener {
+                viewModel.deleteNews(article)
             }
         }
     }
