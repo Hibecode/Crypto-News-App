@@ -1,5 +1,6 @@
 package com.example.crypto_news_app.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,17 +40,17 @@ class HorizontalScrollAdapter: RecyclerView.Adapter<HorizontalScrollAdapter.Hori
     override fun getItemCount() = differ.currentList.size
 
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: HorizontalScrollViewHolder, position: Int) {
         val tag = differ.currentList[position]
         holder.itemView.apply {
             tagButton.text = tag.name
             if (tag.isPressed){
                 tagButton.setOnClickListener { tagButton ->
-                    tagButton.setBackgroundColor(808080)
+                    tagButton.setBackgroundColor(R.color.tagPressed)
                 }
             } else {
-                tag.isPressed = false
-                tagButton.setBackgroundColor("3F66B5")
+                tagButton.setBackgroundColor(R.color.tagNotPressed)
             }
 
         }
