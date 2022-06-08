@@ -40,18 +40,20 @@ class HorizontalScrollAdapter: RecyclerView.Adapter<HorizontalScrollAdapter.Hori
     override fun getItemCount() = differ.currentList.size
 
 
-    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: HorizontalScrollViewHolder, position: Int) {
         val tag = differ.currentList[position]
         holder.itemView.apply {
             tagButton.text = tag.name
-            if (tag.isPressed){
-                tagButton.setOnClickListener { tagButton ->
-                    tagButton.setBackgroundColor(R.color.tagPressed)
+            tagButton.setOnClickListener {
+                if (tag.isPressed){
+                    tagButton.setBackgroundColor(resources.getColor(R.color.tagNotPressed))
+                    tag.isPressed = false
+                } else {
+                    tagButton.setBackgroundColor(resources.getColor(R.color.tagPressed))
+                    tag.isPressed = true
                 }
-            } else {
-                tagButton.setBackgroundColor(R.color.tagNotPressed)
             }
+
 
         }
     }
