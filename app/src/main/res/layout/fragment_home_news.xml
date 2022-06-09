@@ -62,9 +62,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/open_sans"
-        android:text="TextView"
-        android:textColor="#0E0808"
-        android:textSize="20sp"
+        android:text=""
+        android:textColor="#E4E4E4"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivMainImage"
         app:layout_constraintStart_toStartOf="parent" />
