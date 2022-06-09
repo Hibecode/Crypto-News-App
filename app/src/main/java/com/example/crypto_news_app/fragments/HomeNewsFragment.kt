@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.crypto_news_app.NewsActivity
 import com.example.crypto_news_app.R
 import com.example.crypto_news_app.adapters.HorizontalScrollAdapter
@@ -46,7 +47,9 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
             when (response) {
                 is Resource.Success -> {
                     response.data?.let { newsResponse ->
-                        myAdapter.differ.submitList(newsResponse.articles)
+                        Glide.with(this).load(newsResponse.articles[0].urlToImage).into(ivMainImage)
+                        myAdapter.differ.submitList(newsResponse.articles.drop(1))
+                        tvMainText.text = newsResponse.articles.size.toString()
                     }
                 }
                 is Resource.Error -> {
