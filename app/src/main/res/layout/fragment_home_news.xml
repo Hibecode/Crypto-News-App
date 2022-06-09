@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/BottomCurve"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvHorizontalScroll" />
@@ -57,14 +58,16 @@
 
     <TextView
         android:id="@+id/tvMainTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/open_sans"
-        android:text="TextView"
+        android:fontFamily="@font/convergence"
+        android:layout_marginStart="16dp"
+        android:paddingEnd="16dp"
+        android:text=""
+        android:maxLines="5"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivMainImage"
         app:layout_constraintStart_toStartOf="parent" />
