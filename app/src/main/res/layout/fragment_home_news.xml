@@ -64,7 +64,7 @@
         android:fontFamily="@font/open_sans"
         android:text="TextView"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivMainImage"
         app:layout_constraintStart_toStartOf="parent" />
