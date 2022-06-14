@@ -29,6 +29,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
         setUpRecyclerView()
         setUpTagRecyclerView()
         TagAdapter.viewModel = viewModel
+        rvHomeNews.setHasFixedSize(false)
 
         myAdapter.setOnItemClickListener {
             //Puts the article data into bundle
@@ -48,8 +49,8 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
                 is Resource.Success -> {
                     response.data?.let { newsResponse ->
                         Glide.with(this).load(newsResponse.articles[0].urlToImage).into(ivMainImage)
+                        tvMainTitle.text = newsResponse.articles[0].title
                         myAdapter.differ.submitList(newsResponse.articles.drop(1))
-                        tvMainText.text = newsResponse.articles.size.toString()
                     }
                 }
                 is Resource.Error -> {

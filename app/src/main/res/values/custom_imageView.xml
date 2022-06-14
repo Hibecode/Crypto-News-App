@@ -5,4 +5,9 @@
         <item name="cornerSize">15%</item>
     </style>
 
+    <style name="BottomCurve">
+        <item name="cornerSizeBottomLeft">5%</item>
+        <item name="cornerSizeBottomRight">5%</item>
+    </style>
+
 </resources>
