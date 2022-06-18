@@ -1,8 +1,10 @@
 package com.example.crypto_news_app.fragments
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +16,7 @@ import com.example.crypto_news_app.adapters.NewsAdapter
 import com.example.crypto_news_app.models.Tag
 import com.example.crypto_news_app.ui.NewsViewModel
 import com.example.crypto_news_app.utils.Resource
+import com.example.crypto_news_app.utils.parseDateTime
 import kotlinx.android.synthetic.main.fragment_home_news.*
 
 class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
@@ -22,9 +25,12 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
     val TagAdapter by lazy { HorizontalScrollAdapter() }
     lateinit var viewModel: NewsViewModel
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
+
+        parseDateTime()
 
         setUpRecyclerView()
         setUpTagRecyclerView()
