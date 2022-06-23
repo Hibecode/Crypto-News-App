@@ -113,4 +113,6 @@ fun getDateTimePeriod(startDate: String): String {
 }
 
 
-
+fun isOneOrNot(number: Int): Boolean {
+    return number == 1
+}
