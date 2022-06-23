@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit
 
 
 @RequiresApi(Build.VERSION_CODES.O)
-fun parseDateTime(dateTime: String) {
+fun parseDateTime(/*dateTime: String*/) {
 
 
     val current = LocalDateTime.now()
@@ -49,7 +49,11 @@ fun parseDateTime(dateTime: String) {
     val noOfMonths = ChronoUnit.MONTHS.between(ldt, zdt)
     val noOfYears = ChronoUnit.YEARS.between(ldt, zdt)
 
-    Log.d("parseTest", noOfDays.toString())
+    //Log.d("parseTest", noOfDays.toString())
+
+    val testDT = getDateTimePeriod("2022-05-21T19:31:39Z")
+
+    Log.d("parseTest", "testDT+ ago")
 
 
 
@@ -71,7 +75,7 @@ fun getInstantTime(): ZonedDateTime {
 
 
 @RequiresApi(Build.VERSION_CODES.O)
-fun getNoOfDays(startDate: String): String {
+fun getDateTimePeriod(startDate: String): String {
     val dtf = DateTimeFormatter.ISO_DATE_TIME
     val sdt = ZonedDateTime.parse(startDate, dtf)
 
@@ -85,7 +89,7 @@ fun getNoOfDays(startDate: String): String {
 
     if(noOfYears < 1) {
         if (noOfMonths in 1..11) {
-            return "$noOfMonths months"
+            return "$noOfMonths month"
         } else {
             if (noOfDays in 1..30) {
                 return "$noOfDays days"
@@ -107,3 +111,6 @@ fun getNoOfDays(startDate: String): String {
 
 
 }
+
+
+
