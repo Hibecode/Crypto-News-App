@@ -53,7 +53,7 @@ fun parseDateTime(/*dateTime: String*/) {
 
     val testDT = getDateTimePeriod("2022-05-21T19:31:39Z")
 
-    Log.d("parseTest", "testDT+ ago")
+    Log.d("parseTest", "$testDT ago")
 
 
 
@@ -89,16 +89,16 @@ fun getDateTimePeriod(startDate: String): String {
 
     if(noOfYears < 1) {
         if (noOfMonths in 1..11) {
-            return "$noOfMonths month"
+            return "$noOfMonths month${isOneOrNot(noOfMonths)}"
         } else {
             if (noOfDays in 1..30) {
-                return "$noOfDays days"
+                return "$noOfDays day${isOneOrNot(noOfDays)}"
             } else {
                 if (noOfHours in 1..23) {
-                    return "$noOfHours hours"
+                    return "$noOfHours hour${isOneOrNot(noOfHours)}"
                 } else {
                     if (noOfMinutes in 1..59) {
-                        return "$noOfMinutes minutes"
+                        return "$noOfMinutes minute${isOneOrNot(noOfMinutes)}"
                     }
                 }
             }
@@ -107,12 +107,15 @@ fun getDateTimePeriod(startDate: String): String {
         return "$noOfYears years"
     }
 
-    return "0..0"
+    return startDate
 
 
 }
 
 
-fun isOneOrNot(number: Int): Boolean {
-    return number == 1
+fun isOneOrNot(number: Long): String {
+    val no = number.toInt()
+    if (no != 1)
+        return "s"
+    return ""
 }
