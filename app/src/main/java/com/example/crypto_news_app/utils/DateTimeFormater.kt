@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit
 
 
 @RequiresApi(Build.VERSION_CODES.O)
-fun parseDateTime(/*dateTime: String*/) {
+fun parseDateTime(dateTime: String): String {
 
 
     val current = LocalDateTime.now()
@@ -51,9 +51,11 @@ fun parseDateTime(/*dateTime: String*/) {
 
     //Log.d("parseTest", noOfDays.toString())
 
-    val testDT = getDateTimePeriod("2022-05-21T19:31:39Z")
+    /*val testDT = getDateTimePeriod("2022-05-21T19:31:39Z")
 
-    Log.d("parseTest", "$testDT ago")
+    Log.d("parseTest", "$testDT ago")*/
+
+    return getDateTimePeriod(dateTime)
 
 
 
@@ -109,13 +111,14 @@ fun getDateTimePeriod(startDate: String): String {
 
     return startDate
 
-
 }
 
-
+// This checks whether a number is One or not
+// in order to determine whether the date/time will
+// be pluralized or not. It also adds "ago" at the end.
 fun isOneOrNot(number: Long): String {
     val no = number.toInt()
     if (no != 1)
-        return "s"
-    return ""
+        return "s ago"
+    return " ago"
 }

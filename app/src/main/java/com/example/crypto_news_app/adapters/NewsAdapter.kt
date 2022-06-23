@@ -1,8 +1,10 @@
 package com.example.crypto_news_app.adapters
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.crypto_news_app.R
 import com.example.crypto_news_app.models.Article
 import com.example.crypto_news_app.ui.NewsViewModel
+import com.example.crypto_news_app.utils.parseDateTime
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
@@ -39,6 +42,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     override fun getItemCount() = differ.currentList.size
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         Glide.with(holder.itemView).load(article.urlToImage).into(holder.itemView.ivArticleImage)
@@ -46,7 +50,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             //attach data to View
             tvTitle.text = article.title
             tvSource.text = article.source.name
-            tvPublishedAt.text = article.publishedAt
+            tvPublishedAt.text = parseDateTime(article.publishedAt)
 
             //Once the item view is clicked the item article data is passed to the
             //onItemClickListener. Continue down

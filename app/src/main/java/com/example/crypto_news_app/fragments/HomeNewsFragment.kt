@@ -30,7 +30,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
 
-        parseDateTime()
+
 
         setUpRecyclerView()
         setUpTagRecyclerView()
