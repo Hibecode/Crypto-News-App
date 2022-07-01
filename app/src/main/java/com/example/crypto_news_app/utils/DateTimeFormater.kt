@@ -1,10 +1,8 @@
 package com.example.crypto_news_app.utils
 
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import java.time.Instant
-import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -43,6 +41,7 @@ fun getDateTimePeriod(startDate: String): String {
     val noOfMinutes = ChronoUnit.MINUTES.between(sdt, instant)
     val noOfHours = ChronoUnit.HOURS.between(sdt, instant)
     val noOfDays = ChronoUnit.DAYS.between(sdt, instant)
+    val noOfWeeks = ChronoUnit.WEEKS.between(sdt, instant)
     val noOfMonths = ChronoUnit.MONTHS.between(sdt, instant)
     val noOfYears = ChronoUnit.YEARS.between(sdt, instant)
 
@@ -51,14 +50,18 @@ fun getDateTimePeriod(startDate: String): String {
         if (noOfMonths in 1..11) {
             return "$noOfMonths month${isOneOrNot(noOfMonths)}"
         } else {
-            if (noOfDays in 1..30) {
-                return "$noOfDays day${isOneOrNot(noOfDays)}"
+            if (noOfWeeks in 1..3) {
+                return "$noOfWeeks week${isOneOrNot(noOfWeeks)}"
             } else {
-                if (noOfHours in 1..23) {
-                    return "$noOfHours hour${isOneOrNot(noOfHours)}"
+                if (noOfDays in 1..30) {
+                    return "$noOfDays day${isOneOrNot(noOfDays)}"
                 } else {
-                    if (noOfMinutes in 1..59) {
-                        return "$noOfMinutes minute${isOneOrNot(noOfMinutes)}"
+                    if (noOfHours in 1..23) {
+                        return "$noOfHours hour${isOneOrNot(noOfHours)}"
+                    } else {
+                        if (noOfMinutes in 1..59) {
+                            return "$noOfMinutes minute${isOneOrNot(noOfMinutes)}"
+                        }
                     }
                 }
             }
