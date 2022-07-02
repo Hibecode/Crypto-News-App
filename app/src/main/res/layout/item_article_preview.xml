@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="110dp"
     android:padding="8dp">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -24,7 +24,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
         android:fontFamily="@font/montserrat_medium"
         android:maxLines="3"
         android:text="@string/title_is_the_latest_band_in_town_people_rush_to_meet_them_in_the_alley_way_in_gerogia_town"
