@@ -88,6 +88,7 @@ class HomeNewsFragment: Fragment(R.layout.fragment_home_news) {
             Tag("Ethereum"),
             Tag("Altcoin"),
             Tag("Crypto"),
+            Tag("Web3"),
             Tag("DAO"),
             Tag("P2P"),
             Tag("dApp"),
